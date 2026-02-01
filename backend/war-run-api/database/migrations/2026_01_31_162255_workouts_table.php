@@ -13,7 +13,6 @@ return new class extends Migration
 {
     Schema::create('workouts', function (Blueprint $table) {
         $table->id();
-
         $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
         $table->dateTime('start_time');
         $table->dateTime('end_time')->nullable();

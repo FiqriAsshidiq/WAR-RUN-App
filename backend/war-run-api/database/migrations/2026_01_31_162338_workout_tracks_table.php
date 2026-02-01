@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('workout_id')->constrained('workouts')->cascadeOnUpdate()->cascadeOnDelete();
             $table->decimal('lat', 10, 7);
             $table->decimal('lng', 10, 7);
+            $table->timestamp('recorded_at');
             $table->index(['workout_id', 'recorded_at']);
             $table->timestamps();
 
