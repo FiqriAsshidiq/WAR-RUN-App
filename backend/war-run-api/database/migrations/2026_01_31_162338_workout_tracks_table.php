@@ -11,9 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-    }
+        Schema::create('workout_tracks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('workout_id')->constrained('workouts')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->decimal('lat', 10, 7);
+            $table->decimal('lng', 10, 7);
+            $table->index(['workout_id', 'recorded_at']);
+            $table->timestamps();
 
+        });
+    }
     /**
      * Reverse the migrations.
      */
